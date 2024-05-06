@@ -1,3 +1,5 @@
+'use server'
+
 import connectDB from "@/lib/connectDB"
 import UserModel from "@/models/user.model"
 

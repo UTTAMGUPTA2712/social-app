@@ -14,7 +14,7 @@ const Navbar = async (props) => {
         image: session?.user?.image, 
     })
       return (
-        <div className="NAVCONATINER">
+        <div className="NAVCONATINER" >
             <div className="left--nav">
                 <img
                     src={LOGO}
