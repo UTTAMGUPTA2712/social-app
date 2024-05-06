@@ -26,12 +26,6 @@ const PostsSchema = mongoose.Schema(
     }
 );
 
-let PostsModel;
-
-if (mongoose.models.posts) {
-    PostsModel = mongoose.model('posts');
-} else {
-    PostsModel = mongoose.model('posts', PostsSchema);
-}
+const PostsModel = mongoose.model.posts || mongoose.model('posts', PostsSchema);
 
 export default PostsModel;

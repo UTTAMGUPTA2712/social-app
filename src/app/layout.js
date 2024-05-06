@@ -3,6 +3,7 @@ import "./globals.css";
 import { CssBaseline } from "@mui/material";
 import { SessionProvider } from "next-auth/react"
 import { auth } from "@/config/auth";
+import dbConnect from "@/lib/connectDB";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -12,6 +13,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const session = await auth();
+  await dbConnect();
   return (
     <SessionProvider session={session}>
     <html lang="en">

@@ -11,12 +11,6 @@ const UserSchema = mongoose.Schema(
   }
 );
 
-let UserModel;
-
-if (mongoose.models.users) {
-  UserModel = mongoose.model('users');
-} else {
-  UserModel = mongoose.model('users', UserSchema);
-}
+const  UserModel= mongoose.model.users || mongoose.model('users', UserSchema);
 
 export default UserModel;

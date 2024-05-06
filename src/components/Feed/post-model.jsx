@@ -3,10 +3,11 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Stack, TextF
 import React, { useRef, useState } from 'react'
 import { styled } from '@mui/material/styles';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { ref as firebseRef, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from 'uuid';
 import { postAction } from '@/actions/post.action';
 import { useSession } from 'next-auth/react';
+import { storage } from '@/config/firebase';
 
 const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
@@ -40,7 +41,7 @@ const PostModal = () => {
         if (!description || !media) return;
         setLoading(true)
 
-        const mediaRef = ref(storage, `${media.name + v4()}`);
+        const mediaRef = firebseRef(storage, `${media.name + v4()}`);
         await uploadBytes(mediaRef, media);
 
         const downloadURL = await getDownloadURL(mediaRef);

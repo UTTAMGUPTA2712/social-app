@@ -4,10 +4,11 @@ import { auth } from "@/config/auth";
 
 export default async function Home() {
   const session = await auth()
+  console.log(session)
 
   return (
     <main className="w-screen h-screen" >
-      {!session ? <SignIn /> : <Feed />}
+      {/* {!session ? <SignIn /> : <Feed />} */}
     </main>
   );
 }

@@ -1,7 +1,9 @@
-import connectDB from "@/app/api/lib/connectDB"
-import PostsModel from "@/app/api/models/posts.model"
+import dbConnect from "@/lib/connectDB";
+import PostsModel from "@/models/posts.model"
 
  export const postAction = async (data) => {
-        await connectDB()
+        await dbConnect()
+        const dd= await PostsModel.create(data);
+        console.log(dd, "data")
         
  }

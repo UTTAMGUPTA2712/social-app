@@ -1,5 +1,5 @@
-import connectDB from "@/app/api/lib/connectDB"
-import UserModel from "@/app/api/models/user.model"
+import connectDB from "@/lib/connectDB"
+import UserModel from "@/models/user.model"
 
 export const userAction = async (data) => {
     await connectDB()
