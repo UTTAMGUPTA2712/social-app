@@ -21,6 +21,6 @@ const CommentSchema = mongoose.Schema(
     }
 );
 
-const  CommentsModel = mongoose.models.comments || mongoose.model('comments', CommentSchema);
+const  CommentsModel = mongoose.models?.comments || mongoose.model('comments', CommentSchema);
 
 export default CommentsModel;

@@ -8,8 +8,7 @@ export default async function Home() {
 
   return (
     <main className="w-screen h-screen" >
-      jfsdjklf
-      {/* {!session ? <SignIn /> : <Feed />} */}
+      {!session ? <SignIn /> : <Feed />}
     </main>
   );
 }
