@@ -3,13 +3,11 @@ import LOGO from "../../assets/LOGO.svg";
 // import { useState, useEffect } from "react";
 import { auth, signOut } from "@/config/auth";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import { IconButton } from "@mui/material";
-import axios from "axios";
 import { userAction } from "@/actions/user.action";
 
 const Navbar = async (props) => {
     const session = await auth()
-    userAction({
+    await userAction({
         email: session?.user?.email,
         name: session?.user?.name,
         image: session?.user?.image,
