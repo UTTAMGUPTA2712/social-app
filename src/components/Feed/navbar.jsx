@@ -5,25 +5,16 @@ import { auth, signOut } from "@/config/auth";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { IconButton } from "@mui/material";
 import axios from "axios";
+import { userAction } from "@/actions/user.action";
 
 const Navbar = async (props) => {
     const session = await auth()
-   const trigger = async () => {
-    try {
-        const res = await axios.post('/api/users', {
-            name: session?.user?.name,
-            email: session?.user?.email,
-            imageURL: session?.user?.imageURL
-        })
-    }
-    catch (err) {
-        console.log(err)
-    }
-   }
-   trigger()
-
-
-    return (
+    userAction({
+        email: session?.user?.email,
+        name: session?.user?.name,
+        image: session?.user?.image,
+    })
+      return (
         <div className="NAVCONATINER">
             <div className="left--nav">
                 <img
@@ -39,7 +30,6 @@ const Navbar = async (props) => {
                     </span>
                 </span>
             </div>
-
             <div className="right--nav">
                 <form action={async () => {
                     "use server"
