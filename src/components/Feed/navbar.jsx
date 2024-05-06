@@ -4,13 +4,14 @@ import LOGO from "../../assets/LOGO.svg";
 import { auth, signOut } from "@/config/auth";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { userAction } from "@/actions/user.action";
+import { IconButton } from "@mui/material";
 
 const Navbar = async (props) => {
     const session = await auth()
     await userAction({
         email: session?.user?.email,
         name: session?.user?.name,
-        image: session?.user?.image,
+        image: session?.user?.image, 
     })
       return (
         <div className="NAVCONATINER">
