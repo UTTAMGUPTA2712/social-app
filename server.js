@@ -15,7 +15,7 @@ app.prepare().then(() => {
   const io = new Server(httpServer);
 
   io.on("connection", (socket) => {
-    console.log("a user connected systumm", socket.id);
+    console.log("a user connected", socket.id);
 
     socket.on("disconnect", () => {
       console.log("user disconnected");
@@ -27,12 +27,10 @@ app.prepare().then(() => {
     });
   });
 
-  httpServer
-    .once("error", (err) => {
+  httpServer.once("error", (err) => {
       console.error(err);
       process.exit(1);
-    })
-    .listen(port, () => {
+    }).listen(port, () => {
       console.log(`> Ready on http://${hostname}:${port}`);
     });
 });
