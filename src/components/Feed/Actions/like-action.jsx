@@ -5,12 +5,13 @@ import { IconButton } from "@mui/material"
 
 export const LikeAction = (props) => {
     const { likes } = props
+    console.log("🚀 ~ LikeAction ~ likes:", likes.length)
     const handleLike = () => {
         console.log('like')
     }
     return (
         <IconButton onClick={handleLike} >
-            <FavoriteBorderIcon sx={{ color: !likes.length ? undefined : "red" }} />
+            <FavoriteBorderIcon color={likes.length !== 0 ? "error" : undefined}  />
         </IconButton>
     )
 }
